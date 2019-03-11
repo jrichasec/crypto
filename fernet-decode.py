@@ -19,6 +19,7 @@ def genkey(passwd):
 	digest.update(str.encode(passwd))
 	return base64.urlsafe_b64encode(digest.finalize())
 
+#PBKDF2 a bit better, static salt lol
 def genPBKDF2(passwd): 
 	dk = hashlib.pbkdf2_hmac('sha256',
 			    str.encode(passwd),
